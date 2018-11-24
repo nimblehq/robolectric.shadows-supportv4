@@ -17,33 +17,43 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+ext {
+    robolectric_version = "4.1-SNAPSHOT"
+}
+
+configurations {
+    earlyTestRuntime
 }
 
 dependencies {
-    compileOnly project(":robolectric")
-    compileOnly project(":shadows:framework")
+    compileOnly "org.robolectric:robolectric:$robolectric_version"
+    compileOnly "org.robolectric:shadows-framework:$robolectric_version"
 
-    compileOnly AndroidSdk.MAX_SDK.coordinates
-    compileOnly "com.android.support:support-annotations:26.0.1"
-    compileOnly "com.android.support:support-v4:26.0.1"
-    compileOnly "com.android.support:support-compat:26.0.1"
-    compileOnly "com.android.support:support-core-ui:26.0.1"
-    compileOnly "com.android.support:support-core-utils:26.0.1"
-    compileOnly "com.android.support:support-fragment:26.0.1"
-    compileOnly "com.android.support:support-media-compat:26.0.1"
+    compileOnly "androidx.annotation:annotation:1.0.0"
+    compileOnly "androidx.legacy:legacy-support-v4:1.0.0"
+    compileOnly "androidx.core:core:1.1.0-alpha01"
+    compileOnly "androidx.legacy:legacy-support-core-ui:1.0.0"
+    compileOnly "androidx.legacy:legacy-support-core-utils:1.0.0"
+    compileOnly "androidx.fragment:fragment:1.1.0-alpha01"
+    compileOnly "androidx.media:media:1.0.0"
 
-    testImplementation project(":robolectric")
+    testImplementation "org.robolectric:robolectric:$robolectric_version"
     testImplementation "junit:junit:4.12"
     testImplementation "org.hamcrest:hamcrest-junit:2.0.0.0"
     testImplementation "com.google.truth:truth:0.42"
     testImplementation "org.mockito:mockito-core:2.5.4"
 
     earlyTestRuntime "org.hamcrest:hamcrest-junit:2.0.0.0"
-    testRuntime AndroidSdk.MAX_SDK.coordinates
-    testRuntime "com.android.support:support-v4:26.0.1"
-    testRuntime "com.android.support:support-compat:26.0.1"
-    testRuntime "com.android.support:support-core-ui:26.0.1"
-    testRuntime "com.android.support:support-core-utils:26.0.1"
-    testRuntime "com.android.support:support-fragment:26.0.1"
-    testRuntime "com.android.support:support-media-compat:26.0.1"
+    testImplementation "androidx.legacy:legacy-support-v4:1.0.0"
+    testImplementation "androidx.core:core:1.1.0-alpha01"
+    testImplementation "androidx.legacy:legacy-support-core-ui:1.0.0"
+    testImplementation "androidx.legacy:legacy-support-core-utils:1.0.0"
+    testImplementation "androidx.fragment:fragment:1.1.0-alpha01"
+    testImplementation "androidx.media:media:1.0.0"
 }
