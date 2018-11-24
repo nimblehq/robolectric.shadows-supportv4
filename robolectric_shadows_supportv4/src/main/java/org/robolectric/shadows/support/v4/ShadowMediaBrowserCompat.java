@@ -5,31 +5,20 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.media.MediaBrowserCompat;
-import android.support.v4.media.MediaBrowserCompat.ConnectionCallback;
-import android.support.v4.media.MediaBrowserCompat.ItemCallback;
-import android.support.v4.media.MediaBrowserCompat.MediaItem;
-import android.support.v4.media.MediaBrowserCompat.SearchCallback;
-import android.support.v4.media.MediaBrowserCompat.SubscriptionCallback;
-import android.support.v4.media.MediaBrowserServiceCompat;
+import android.support.v4.media.MediaBrowserCompat.*;
 import android.support.v4.media.MediaMetadataCompat;
-
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import org.robolectric.annotation.Implementation;
 import org.robolectric.annotation.Implements;
 import org.robolectric.annotation.RealObject;
 import org.robolectric.shadow.api.Shadow;
 import org.robolectric.util.ReflectionHelpers.ClassParameter;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import static android.support.v4.media.MediaBrowserCompat.EXTRA_PAGE;
-import static android.support.v4.media.MediaBrowserCompat.EXTRA_PAGE_SIZE;
+import static android.support.v4.media.MediaBrowserCompat.*;
 
 /**
  * This will mimic the connection to a {@link MediaBrowserServiceCompat} by creating and maintaining

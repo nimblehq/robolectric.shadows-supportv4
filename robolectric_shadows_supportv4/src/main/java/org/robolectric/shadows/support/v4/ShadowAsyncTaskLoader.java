@@ -1,8 +1,7 @@
 package org.robolectric.shadows.support.v4;
 
 import android.content.Context;
-import android.support.v4.content.AsyncTaskLoader;
-
+import androidx.loader.content.AsyncTaskLoader;
 import org.robolectric.Robolectric;
 import org.robolectric.annotation.Implementation;
 import org.robolectric.annotation.Implements;
