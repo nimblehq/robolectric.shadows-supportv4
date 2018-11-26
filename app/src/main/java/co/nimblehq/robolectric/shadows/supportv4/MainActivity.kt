@@ -2,7 +2,7 @@ package co.nimblehq.robolectric.shadows.supportv4
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import co.nimblehq.robolectric.shadows.supportv4.adapter.TabAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -14,15 +14,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        openFragment(TestFragment())
+//        openFragment(TestFragment())
+
+        val hotelInfoTabAdapter = TabAdapter(supportFragmentManager)
+        viewPagerHotelInfo.adapter = hotelInfoTabAdapter
     }
 
-    private fun openFragment(fragment: Fragment?) {
-        if (fragment == null) {
-            return
-        }
-        supportFragmentManager.beginTransaction()
-            .replace(container.id, fragment)
-            .commitNow()
-    }
+//    private fun openFragment(fragment: Fragment?) {
+//        if (fragment == null) {
+//            return
+//        }
+//        supportFragmentManager.beginTransaction()
+//            .replace(container.id, fragment)
+//            .commitNow()
+//    }
 }
